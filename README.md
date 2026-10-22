@@ -78,6 +78,20 @@ Everything available on winget is installed by the configuration; the full list 
 
 A watchdog releases `Alt` if Windows misses the key-up.
 
+## Claude Code
+
+Installed via mise (`claude` in the mise config), so its own auto-updater is off; update with `mise up claude`.
+
+[`claude/settings.example.json`](claude/settings.example.json) is my `~/.claude/settings.json` without private paths. It is not applied automatically: copy it, replace `<windows-user>` and keep what you want. Notable settings:
+
+- `DISABLE_AUTOUPDATER`: required when Claude Code comes from mise, otherwise it installs updates outside of mise.
+- `CLAUDE_CODE_USE_POWERSHELL_TOOL`: lets Claude run PowerShell directly instead of only Git Bash.
+- `statusLine`: runs [`claude/statusline.ps1`](claude/statusline.ps1) (folder, Git branch, model and effort, context usage); copy it to `~/.claude/`. Needs a Nerd Font.
+
+## Fonts
+
+[IoskeleyMono](https://github.com/ahatem/IoskeleyMono) Nerd Font Mono, regular and `Term` variant (the one Windows Terminal uses). chezmoi downloads the pinned release to `~/.local/share/fonts` (`.chezmoiexternal.toml`) and `run_onchange_after_40-fonts.ps1.tmpl` registers it for the current user, no admin needed. New fonts show up after the next sign-in. To update, change the version and checksums in `.chezmoiexternal.toml`.
+
 ## SSH agent in WSL
 
 The configuration installs [npiperelay](https://github.com/albertony/npiperelay) and keeps the Windows `ssh-agent` service running, so WSL can use the Windows agent through `socat` + `npiperelay.exe`. In WSL, install `socat` (e.g. `sudo apt install socat`) and add this to `~/.bashrc` or `~/.zshrc`. Replace `<windows-user>` with your Windows user name; `(Get-Command npiperelay).Source` in PowerShell prints the exact path.

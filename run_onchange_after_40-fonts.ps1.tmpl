@@ -1,0 +1,11 @@
+# Registers the fonts that .chezmoiexternal.toml unpacks to ~/.local/share/fonts for the current user (no admin needed).
+# Takes effect after the next sign-in.
+# .chezmoiexternal.toml hash: {{ include ".chezmoiexternal.toml" | sha256sum }}
+$key = 'HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Fonts'
+$registered = (Get-ItemProperty $key).PSObject.Properties | Where-Object { $_.Name -notlike 'PS*' }
+Get-ChildItem "$HOME\.local\share\fonts" -Recurse -Filter *.ttf | ForEach-Object {
+    $file = $_
+    # Drop registrations of the same file from an earlier manual install, so the font isn't listed twice.
+    $registered | Where-Object { (Split-Path $_.Value -Leaf) -eq $file.Name } | ForEach-Object { Remove-ItemProperty $key -Name $_.Name }
+    Set-ItemProperty $key -Name "$($file.BaseName) (TrueType)" -Value $file.FullName
+}

@@ -3,3 +3,18 @@
     type = "file"
     url = "https://github.com/Ciantic/VirtualDesktopAccessor/releases/download/2024-12-16-windows11/VirtualDesktopAccessor.dll"
     checksum.sha256 = "8740c572a1c000e3b87ffeb1e4c397eae9af3bd4a2abdc3bcffacab4493f8ff5"
+
+# IoskeleyMono Nerd Font Mono (https://github.com/ahatem/IoskeleyMono), registered by run_onchange_after_40-fonts.
+[".local/share/fonts/IoskeleyMono"]
+    type = "archive"
+    url = "https://github.com/ahatem/IoskeleyMono/releases/download/v2.2.0/IoskeleyMono-NerdFont.zip"
+    checksum.sha256 = "6d216e793d3eb3e80c10f85f330d7a4d46317cfd5b0e4c4cd7021d1c108c160e"
+    stripComponents = 1
+    include = ["Normal", "Normal/*NerdFontMono-*.ttf"]
+
+[".local/share/fonts/IoskeleyMonoTerm"]
+    type = "archive"
+    url = "https://github.com/ahatem/IoskeleyMono/releases/download/v2.2.0/IoskeleyMono-Term-NerdFont.zip"
+    checksum.sha256 = "25c601b1a561f73cbb0366931148861451a972463718d25e76bf869fd3d54754"
+    stripComponents = 1
+    include = ["Normal", "Normal/*NerdFontMono-*.ttf"]
