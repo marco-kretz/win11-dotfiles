@@ -17,6 +17,25 @@ properties:
         id: RamenSoftware.Windhawk
         source: winget
 
+    # --- Windows SSH agent for WSL (WSL side: socat + npiperelay.exe) -------------------
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: npiperelay
+      directives:
+        description: Install npiperelay
+      settings:
+        id: albertony.npiperelay
+        source: winget
+
+    - resource: PSDscResources/Service
+      id: ssh-agent
+      directives:
+        description: OpenSSH agent starts automatically
+        securityContext: elevated
+      settings:
+        Name: ssh-agent
+        StartupType: Automatic
+        State: Running
+
     # --- Settings app -------------------------------------------------------------------
     - resource: PSDscResources/Registry
       id: settings-hide-home

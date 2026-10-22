@@ -48,6 +48,10 @@ Install via Windhawk (installed by the configuration). Settings live in Windhawk
 
 - [AI Usage](https://github.com/marco-kretz/AIUsage): Claude Code usage limits in the tray. Install from its releases (not on winget).
 
+## SSH agent in WSL
+
+The configuration installs [npiperelay](https://github.com/albertony/npiperelay) and keeps the Windows `ssh-agent` service running, so WSL can use the Windows agent through `socat` + `npiperelay.exe`. The WSL side (`socat`, `SSH_AUTH_SOCK` setup) lives in the WSL distro.
+
 ## Manual steps
 
 - Privacy & security: review app permissions (camera, microphone, location, contacts, email, call history, borderless screen capture).
