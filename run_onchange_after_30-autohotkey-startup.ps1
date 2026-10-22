@@ -5,7 +5,7 @@ if (-not (Test-Path $exe)) {
     Write-Warning "AutoHotkey v2 is not installed yet. Run 'chezmoi apply' again once it is."
     exit 1
 }
-$script = Join-Path $HOME 'Documents\AutoHotkey\virtual-desktop-switch.ahk'
+$script = Join-Path $HOME '.config\autohotkey\virtual-desktop-switch.ahk'
 $link = (New-Object -ComObject WScript.Shell).CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\virtual-desktop-switch.ahk.lnk")
 $link.TargetPath = $exe
 $link.Arguments = "`"$script`""

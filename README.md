@@ -17,7 +17,7 @@ mise install   # installs all tools from the mise config, chezmoi included
 ## Contents
 
 - `dot_config/mise/config.toml`: global mise tools.
-- `readonly_Documents/AutoHotkey/`: AutoHotkey script, see [AutoHotkey](#autohotkey).
+- `dot_config/autohotkey/`: AutoHotkey script, see [AutoHotkey](#autohotkey).
 - `firefox/user.js`: Betterfox selection, copied into every Firefox profile on `chezmoi apply` (Firefox must be closed).
 - `powertoys/*.json`: PowerToys settings, one file per module (`App.json` holds the general settings and which modules are on). Applied with `PowerToys.DSC.exe` on `chezmoi apply` whenever a file changes. After changing settings in PowerToys, refresh a snapshot:
 
@@ -63,7 +63,7 @@ Everything available on winget is installed by the configuration; the full list 
 
 ## AutoHotkey
 
-`Documents/AutoHotkey/virtual-desktop-switch.ahk` (AutoHotkey v2) starts with Windows via a shortcut in the Startup folder, using the UIAccess build so the hotkeys also work over elevated windows. The [VirtualDesktopAccessor](https://github.com/Ciantic/VirtualDesktopAccessor) DLL next to it is downloaded from the GitHub release by chezmoi (`.chezmoiexternal.toml`, pinned by SHA-256).
+`~/.config/autohotkey/virtual-desktop-switch.ahk` (AutoHotkey v2) starts with Windows via a shortcut in the Startup folder, using the UIAccess build so the hotkeys also work over elevated windows. The [VirtualDesktopAccessor](https://github.com/Ciantic/VirtualDesktopAccessor) DLL next to it is downloaded from the GitHub release by chezmoi (`.chezmoiexternal.toml`, pinned by SHA-256).
 
 | Hotkey | Action |
 | --- | --- |
