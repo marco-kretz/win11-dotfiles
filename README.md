@@ -17,6 +17,7 @@ mise install   # installs all tools from the mise config, chezmoi included
 ## Contents
 
 - `dot_config/mise/config.toml`: global mise tools.
+- `readonly_Documents/AutoHotkey/`: AutoHotkey script, see [AutoHotkey](#autohotkey).
 - `firefox/user.js`: Betterfox selection, copied into every Firefox profile on `chezmoi apply` (Firefox must be closed).
 - `powertoys/*.json`: PowerToys settings, one file per module (`App.json` holds the general settings and which modules are on). Applied with `PowerToys.DSC.exe` on `chezmoi apply` whenever a file changes. After changing settings in PowerToys, refresh a snapshot:
 
@@ -59,6 +60,21 @@ Everything available on winget is installed by the configuration; the full list 
 
 - [NVIDIA Broadcast](https://www.nvidia.com/broadcast-app/): not on winget, install via the NVIDIA App.
 - [AI Usage](https://github.com/marco-kretz/AIUsage): Claude Code usage limits in the tray. Install from its releases (not on winget).
+
+## AutoHotkey
+
+`Documents/AutoHotkey/virtual-desktop-switch.ahk` (AutoHotkey v2) starts with Windows via a shortcut in the Startup folder, using the UIAccess build so the hotkeys also work over elevated windows. The [VirtualDesktopAccessor](https://github.com/Ciantic/VirtualDesktopAccessor) DLL next to it is downloaded from the GitHub release by chezmoi (`.chezmoiexternal.toml`, pinned by SHA-256).
+
+| Hotkey | Action |
+| --- | --- |
+| `Alt` + `1`…`9` | Switch to virtual desktop 1–9 |
+| `Alt` + `Shift` + `1`…`9` | Move the active window to desktop 1–9 |
+| `Alt` + `W` | Close the active window |
+| `Alt` + `F` | Toggle maximize |
+| `Alt` + `Enter` | Windows Terminal |
+| `Ctrl` + `Alt` + `Enter` | Windows Terminal with the `Ubuntu-24.04` profile |
+
+A watchdog releases `Alt` if Windows misses the key-up.
 
 ## SSH agent in WSL
 

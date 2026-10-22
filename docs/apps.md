@@ -30,11 +30,11 @@ Every package that `winget/configuration.winget` installs, and what I use it for
 
 | App | winget ID | Why |
 | --- | --- | --- |
-| PowerToys | `Microsoft.PowerToys` | Run launcher, FancyZones, color picker and other utilities. |
+| PowerToys | `Microsoft.PowerToys` | Peek, Advanced Paste, Color Picker, Hosts editor and more; settings in [`powertoys/`](../powertoys). |
 | NanaZip | `M2Team.NanaZip` | 7-Zip with Windows 11 context menu integration. |
 | LocalSend | `LocalSend.LocalSend` | Send files between devices on the local network. |
 | WinDirStat | `WinDirStat.WinDirStat` | See what fills the disk. |
-| AutoHotkey | `AutoHotkey.AutoHotkey` | Hotkeys and small automations. |
+| AutoHotkey | `AutoHotkey.AutoHotkey` | Virtual desktop and window hotkeys, see [AutoHotkey](../README.md#autohotkey). |
 | EurKEY | `SteffenBruentjen.EurKEY` | US-based keyboard layout with umlauts and European characters. |
 | Obsidian | `Obsidian.Obsidian` | Notes as Markdown files. |
 | Logseq | `Logseq.Logseq` | Outliner and journal. |
