@@ -17,6 +17,8 @@ mise install   # installs all tools from the mise config, chezmoi included
 ## Contents
 
 - `dot_config/mise/config.toml`: global mise tools.
+- `dot_config/oh-my-posh/`: Oh My Posh prompt theme (Monokai Pro).
+- `readonly_Documents/PowerShell/`, `readonly_Documents/WindowsPowerShell/`: PowerShell 7 and Windows PowerShell 5.1 profiles (mise activation, Oh My Posh prompt in PowerShell 7).
 - `dot_config/autohotkey/`: AutoHotkey script, see [AutoHotkey](#autohotkey).
 - `firefox/user.js`: Betterfox selection, copied into every Firefox profile on `chezmoi apply` (Firefox must be closed).
 - `powertoys/*.json`: PowerToys settings, one file per module (`App.json` holds the general settings and which modules are on). Applied with `PowerToys.DSC.exe` on `chezmoi apply` whenever a file changes. After changing settings in PowerToys, refresh a snapshot:

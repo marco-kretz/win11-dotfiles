@@ -24,7 +24,7 @@ Every package that `winget/configuration.winget` installs, and what I use it for
 | DDEV | `DDEVFoundation.DDEV` | Local PHP development environments in Docker. |
 | DBeaver Community | `DBeaver.DBeaver.Community` | Database client. |
 | Bruno | `Bruno.Bruno` | API client; collections live as files in Git. |
-| Starship | `Starship.Starship` | Shell prompt. |
+| Oh My Posh | `JanDeDobbeleer.OhMyPosh` | PowerShell prompt, Monokai Pro theme in `~/.config/oh-my-posh/`. Needs a [Nerd Font](https://www.nerdfonts.com/) in the terminal. |
 
 ## Tools
 

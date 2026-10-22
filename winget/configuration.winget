@@ -114,11 +114,11 @@ properties:
         source: winget
 
     - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: starship
+      id: oh-my-posh
       directives:
-        description: Install Starship.Starship
+        description: Install JanDeDobbeleer.OhMyPosh
       settings:
-        id: Starship.Starship
+        id: JanDeDobbeleer.OhMyPosh
         source: winget
 
     - resource: Microsoft.WinGet.DSC/WinGetPackage
