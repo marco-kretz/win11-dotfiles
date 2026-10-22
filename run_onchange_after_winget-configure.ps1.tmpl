@@ -1,0 +1,3 @@
+# configuration.winget hash: {{ include "winget/configuration.winget" | sha256sum }}
+winget configure -f "{{ joinPath .chezmoi.sourceDir "winget" "configuration.winget" }}" --accept-configuration-agreements --disable-interactivity
+exit $LASTEXITCODE

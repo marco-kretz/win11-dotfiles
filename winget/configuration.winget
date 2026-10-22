@@ -1,0 +1,248 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+# Applied by chezmoi (run_onchange_after_winget-configure.ps1.tmpl) whenever this file changes.
+# Manual:  winget configure -f configuration.winget
+# Check:   winget configure test -f configuration.winget
+# Disable a tweak by commenting out its resource block. Removing a block does not revert
+# the value on machines where it was already applied (see README).
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    # --- Apps ---------------------------------------------------------------------------
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: windhawk
+      directives:
+        description: Install Windhawk
+        securityContext: elevated
+      settings:
+        id: RamenSoftware.Windhawk
+        source: winget
+
+    # --- Settings app -------------------------------------------------------------------
+    - resource: PSDscResources/Registry
+      id: settings-hide-home
+      directives:
+        description: Hide the Settings home page
+        securityContext: elevated
+      settings:
+        Key: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
+        ValueName: SettingsPageVisibility
+        ValueType: String
+        ValueData: "hide:home"
+        Force: true
+
+    # --- Error reporting, silent app installs -------------------------------------------
+    - resource: PSDscResources/Registry
+      id: wer-disabled
+      directives:
+        description: Disable Windows Error Reporting
+        securityContext: elevated
+      settings:
+        Key: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting
+        ValueName: Disabled
+        ValueType: Dword
+        ValueData: "1"
+        Force: true
+
+    - resource: PSDscResources/Registry
+      id: cdm-silent-installed-apps
+      directives:
+        description: No silently installed suggested apps
+      settings:
+        Key: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+        ValueName: SilentInstalledAppsEnabled
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    # --- Suggestions and tips -----------------------------------------------------------
+    - resource: PSDscResources/Registry
+      id: cdm-system-pane-suggestions
+      directives:
+        description: No suggestions in Start / Settings
+      settings:
+        Key: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+        ValueName: SystemPaneSuggestionsEnabled
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    - resource: PSDscResources/Registry
+      id: cdm-338388
+      directives:
+        description: Suggestions (SubscribedContent-338388)
+      settings:
+        Key: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+        ValueName: SubscribedContent-338388Enabled
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    - resource: PSDscResources/Registry
+      id: cdm-338389
+      directives:
+        description: Tips and tricks (SubscribedContent-338389)
+      settings:
+        Key: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+        ValueName: SubscribedContent-338389Enabled
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    - resource: PSDscResources/Registry
+      id: cdm-338393
+      directives:
+        description: Suggested content in Settings (SubscribedContent-338393)
+      settings:
+        Key: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+        ValueName: SubscribedContent-338393Enabled
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    - resource: PSDscResources/Registry
+      id: cdm-353694
+      directives:
+        description: Suggested content in Settings (SubscribedContent-353694)
+      settings:
+        Key: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+        ValueName: SubscribedContent-353694Enabled
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    - resource: PSDscResources/Registry
+      id: cdm-353696
+      directives:
+        description: Suggested content in Settings (SubscribedContent-353696)
+      settings:
+        Key: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+        ValueName: SubscribedContent-353696Enabled
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    - resource: PSDscResources/Registry
+      id: cdm-soft-landing
+      directives:
+        description: No tips about Windows features
+      settings:
+        Key: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+        ValueName: SoftLandingEnabled
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    # --- Nags ---------------------------------------------------------------------------
+    - resource: PSDscResources/Registry
+      id: scoobe
+      directives:
+        description: No "finish setting up your device" screen after updates
+      settings:
+        Key: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement
+        ValueName: ScoobeSystemSettingEnabled
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    - resource: PSDscResources/Registry
+      id: start-account-notifications
+      directives:
+        description: No account notifications in Start
+      settings:
+        Key: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+        ValueName: Start_AccountNotifications
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    - resource: PSDscResources/Registry
+      id: siuf-never
+      directives:
+        description: Feedback frequency never
+      settings:
+        Key: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules
+        ValueName: NumberOfSIUFInPeriod
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    # --- Privacy ------------------------------------------------------------------------
+    - resource: PSDscResources/Registry
+      id: tailored-experiences
+      directives:
+        description: No tailored experiences from diagnostic data
+      settings:
+        Key: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Privacy
+        ValueName: TailoredExperiencesWithDiagnosticDataEnabled
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    - resource: PSDscResources/Registry
+      id: input-restrict-text
+      directives:
+        description: No implicit typing data collection
+      settings:
+        Key: HKEY_CURRENT_USER\Software\Microsoft\InputPersonalization
+        ValueName: RestrictImplicitTextCollection
+        ValueType: Dword
+        ValueData: "1"
+        Force: true
+
+    - resource: PSDscResources/Registry
+      id: input-restrict-ink
+      directives:
+        description: No implicit inking data collection
+      settings:
+        Key: HKEY_CURRENT_USER\Software\Microsoft\InputPersonalization
+        ValueName: RestrictImplicitInkCollection
+        ValueType: Dword
+        ValueData: "1"
+        Force: true
+
+    - resource: PSDscResources/Registry
+      id: input-harvest-contacts
+      directives:
+        description: Do not harvest contacts for input personalization
+      settings:
+        Key: HKEY_CURRENT_USER\Software\Microsoft\InputPersonalization\TrainedDataStore
+        ValueName: HarvestContacts
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    - resource: PSDscResources/Registry
+      id: personalization-privacy-policy
+      directives:
+        description: Inking and typing personalization off
+      settings:
+        Key: HKEY_CURRENT_USER\Software\Microsoft\Personalization\Settings
+        ValueName: AcceptedPrivacyPolicy
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    # --- Network ------------------------------------------------------------------------
+    - resource: PSDscResources/Registry
+      id: delivery-optimization
+      directives:
+        description: Updates only from Microsoft, no peer-to-peer
+        securityContext: elevated
+      settings:
+        Key: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization
+        ValueName: DODownloadMode
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
+
+    - resource: PSDscResources/Registry
+      id: wifi-sense-hotspots
+      directives:
+        description: No auto-connect to open hotspots
+        securityContext: elevated
+      settings:
+        Key: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\config
+        ValueName: AutoConnectAllowedOEM
+        ValueType: Dword
+        ValueData: "0"
+        Force: true
