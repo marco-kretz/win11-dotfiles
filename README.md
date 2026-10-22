@@ -1,5 +1,9 @@
 # win11-dotfiles
 
+<p align="center">
+  <img src="preview.png" alt="Windows Terminal with Oh My Posh prompt, Monokai Pro colors and IoskeleyMono font, showing fastfetch output" width="800">
+</p>
+
 My Windows 11 setup in one place, managed with [chezmoi](https://chezmoi.io): config files, registry tweaks and apps as a [WinGet Configuration](https://learn.microsoft.com/windows/package-manager/configuration/), plus the Windhawk mods and tools I use. Background: [Windows 11 entrümpeln und eigene Windhawk-Mod](https://marco-kretz.de/blog/windows-11-entruempeln-und-eigene-windhawk-mod/).
 
 Tested on Windows 11 Pro 26H2 (build 26300).
