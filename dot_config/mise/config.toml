@@ -16,3 +16,4 @@ ripgrep = "latest"
 uv = "latest"
 yt-dlp = { version = "latest", rename_exe = "yt-dlp" }
 chezmoi = "latest"
+claude = "latest"
