@@ -50,7 +50,18 @@ Install via Windhawk (installed by the configuration). Settings live in Windhawk
 
 ## SSH agent in WSL
 
-The configuration installs [npiperelay](https://github.com/albertony/npiperelay) and keeps the Windows `ssh-agent` service running, so WSL can use the Windows agent through `socat` + `npiperelay.exe`. The WSL side (`socat`, `SSH_AUTH_SOCK` setup) lives in the WSL distro.
+The configuration installs [npiperelay](https://github.com/albertony/npiperelay) and keeps the Windows `ssh-agent` service running, so WSL can use the Windows agent through `socat` + `npiperelay.exe`. In WSL, install `socat` (e.g. `sudo apt install socat`) and add this to `~/.bashrc` or `~/.zshrc`. Replace `<windows-user>` with your Windows user name; `(Get-Command npiperelay).Source` in PowerShell prints the exact path.
+
+```bash
+NPIPERELAY="/mnt/c/Users/<windows-user>/AppData/Local/Microsoft/WinGet/Packages/albertony.npiperelay_Microsoft.Winget.Source_8wekyb3d8bbwe/npiperelay.exe"
+export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
+if ! socat -u OPEN:/dev/null UNIX-CLIENT:"$SSH_AUTH_SOCK" >/dev/null 2>&1; then
+  rm -f "$SSH_AUTH_SOCK"
+  (setsid socat UNIX-LISTEN:"$SSH_AUTH_SOCK",fork EXEC:"$NPIPERELAY -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
+fi
+```
+
+The relay starts once per WSL session; later shells reuse the socket. Check with `ssh-add -l`, which should list the keys from the Windows agent.
 
 ## Manual steps
 
