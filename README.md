@@ -52,13 +52,15 @@ Remove-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ex
 
 ## Windhawk mods
 
-Install via Windhawk (installed by the configuration). Settings live in Windhawk.
+Install by hand in Windhawk (Windhawk itself comes from the configuration), then set the values below under the mod's *Settings*. Windhawk 1.7 has no CLI; once Windhawk 2.0 with `windhawk-cli` is stable, this moves into a chezmoi script.
 
-| Mod | Source |
-| --- | --- |
-| [Multi-DPI Cursor](https://windhawk.net/mods/multi-dpi-cursor) | [win11-multi-dpi-cursor](https://github.com/marco-kretz/win11-multi-dpi-cursor) |
-| Desktop Dots (`desktop-dots`) | [win11-desktop-dots](https://github.com/marco-kretz/win11-desktop-dots) |
-| Single Virtual Desktop (`single-virtual-desktop`) | [win11-single-virtual-desktop](https://github.com/marco-kretz/win11-single-virtual-desktop) |
+| Mod | Source | State | Settings |
+| --- | --- | --- | --- |
+| [Disable Virtual Desktop Transition](https://windhawk.net/mods/disable-virtual-desktop-transition) | Windhawk store | on | defaults |
+| [Multi-DPI Cursor](https://windhawk.net/mods/multi-dpi-cursor) | [win11-multi-dpi-cursor](https://github.com/marco-kretz/win11-multi-dpi-cursor) | on | `baseSize = 36` |
+| Desktop Dots (`desktop-dots`) | [win11-desktop-dots](https://github.com/marco-kretz/win11-desktop-dots) | on | `allMonitors = 1` |
+| Single Virtual Desktop (`single-virtual-desktop`) | [win11-single-virtual-desktop](https://github.com/marco-kretz/win11-single-virtual-desktop) | on | defaults |
+| [Pointer Afterimage Motion Blur](https://windhawk.net/mods/pointer-afterimage-motion-blur) | Windhawk store | off | `trailOpacity = 50`, `drawSpeed = 29`, `trailMs = 25`, `hideWhenFast = 1`, `hideSpeed = 30`, `pauseInFullscreen = 1` |
 
 ## Apps
 
