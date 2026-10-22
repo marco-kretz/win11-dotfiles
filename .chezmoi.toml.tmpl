@@ -1,0 +1,5 @@
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+
+[interpreters.ps1]
+command = "pwsh"
+args = ["-NoLogo", "-NoProfile"]

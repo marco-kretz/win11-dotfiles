@@ -1,0 +1,10 @@
+# Firefox profile folders have random names, so copy user.js into every profile instead of mapping a fixed target.
+# user.js hash: {{ include "firefox/user.js" | sha256sum }}
+$profiles = "$env:APPDATA\Mozilla\Firefox\Profiles"
+if (-not (Test-Path $profiles)) {
+    Write-Warning "No Firefox profiles yet. Start Firefox once, then run 'chezmoi apply' again."
+    exit 1
+}
+Get-ChildItem $profiles -Directory | ForEach-Object {
+    Copy-Item "{{ joinPath .chezmoi.sourceDir "firefox" "user.js" }}" (Join-Path $_.FullName 'user.js') -Force
+}

@@ -1,0 +1,18 @@
+[tools]
+codex = "latest"
+fd = "latest"
+ffmpeg = "latest"
+fzf = "latest"
+gh = "latest"
+jq = "latest"
+just = "latest"
+lazygit = "latest"
+"npm:lighthouse" = { version = "latest", trust_policy_excludes = ["chromium-bidi@157.0.8090-0"] }
+node = "24"
+playwright = "latest"
+pnpm = "latest"
+python = "latest"
+ripgrep = "latest"
+uv = "latest"
+yt-dlp = { version = "latest", rename_exe = "yt-dlp" }
+chezmoi = "latest"
