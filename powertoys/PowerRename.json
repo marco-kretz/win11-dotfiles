@@ -1,0 +1,26 @@
+{
+  "settings": {
+    "properties": {
+      "bool_persist_input": {
+        "value": false
+      },
+      "bool_mru_enabled": {
+        "value": false
+      },
+      "int_max_mru_size": {
+        "value": 0
+      },
+      "bool_show_icon_on_menu": {
+        "value": false
+      },
+      "bool_show_extended_menu": {
+        "value": false
+      },
+      "bool_use_boost_lib": {
+        "value": false
+      }
+    },
+    "name": "PowerRename",
+    "version": "1"
+  }
+}

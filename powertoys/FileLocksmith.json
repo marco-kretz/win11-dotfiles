@@ -1,0 +1,11 @@
+{
+  "settings": {
+    "properties": {
+      "bool_show_extended_menu": {
+        "value": false
+      }
+    },
+    "name": "File Locksmith",
+    "version": "1"
+  }
+}

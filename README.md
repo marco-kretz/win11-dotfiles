@@ -18,6 +18,12 @@ mise install   # installs all tools from the mise config, chezmoi included
 
 - `dot_config/mise/config.toml`: global mise tools.
 - `firefox/user.js`: Betterfox selection, copied into every Firefox profile on `chezmoi apply` (Firefox must be closed).
+- `powertoys/*.json`: PowerToys settings, one file per module (`App.json` holds the general settings and which modules are on). Applied with `PowerToys.DSC.exe` on `chezmoi apply` whenever a file changes. After changing settings in PowerToys, refresh a snapshot:
+
+  ```powershell
+  & "$env:LOCALAPPDATA\PowerToys\PowerToys.DSC.exe" get --resource settings --module Peek | ConvertFrom-Json | Select-Object settings | ConvertTo-Json -Depth 20 | Set-Content powertoys\Peek.json
+  ```
+
 - `winget/community.vsconfig`: Visual Studio Community workloads, applied by the configuration. Refresh after changing workloads in the VS Installer: *More → Export configuration*.
 - `winget/configuration.winget`: registry tweaks and apps ([docs/apps.md](docs/apps.md)), applied by `chezmoi apply` whenever the file changes (one UAC prompt for HKLM values). What each value does: [docs/registry-tweaks.md](docs/registry-tweaks.md).
 

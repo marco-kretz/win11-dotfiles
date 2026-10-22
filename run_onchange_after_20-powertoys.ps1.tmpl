@@ -1,0 +1,14 @@
+# Applies the PowerToys settings snapshots in powertoys/*.json (one file per module, from `PowerToys.DSC.exe get`).
+# Runs after 10-winget-configure, which installs PowerToys on a new machine.
+{{- range glob (joinPath .chezmoi.sourceDir "powertoys" "*.json") }}
+# {{ base . }}: {{ include . | sha256sum }}
+{{- end }}
+$dsc = "$env:LOCALAPPDATA\PowerToys\PowerToys.DSC.exe"
+if (-not (Test-Path $dsc)) {
+    Write-Warning "PowerToys is not installed yet. Run 'chezmoi apply' again once it is."
+    exit 1
+}
+Get-ChildItem "{{ joinPath .chezmoi.sourceDir "powertoys" }}" -Filter *.json | ForEach-Object {
+    & $dsc set --resource settings --module $_.BaseName --input (Get-Content $_.FullName -Raw) | Out-Null
+    if ($LASTEXITCODE) { exit $LASTEXITCODE }
+}
