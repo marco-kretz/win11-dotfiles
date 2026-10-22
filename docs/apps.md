@@ -40,7 +40,7 @@ Every package that `winget/configuration.winget` installs, and what I use it for
 | Logseq | `Logseq.Logseq` | Outliner and journal. |
 | ONLYOFFICE | `ONLYOFFICE.DesktopEditors` | Office documents without Microsoft 365. |
 | Synology Drive Client | `Synology.DriveClient` | Sync with my Synology NAS. |
-| OpenWhispr | `OpenWhispr.OpenWhispr` | Speech-to-text dictation. |
+| OpenWhispr | `OpenWhispr.OpenWhispr` | Local speech-to-text dictation, see [OpenWhispr](../README.md#openwhispr). |
 | Fastfetch | `Fastfetch-cli.Fastfetch` | System info in the terminal. |
 | Windhawk | `RamenSoftware.Windhawk` | Mods for Windows itself, see [Windhawk mods](../README.md#windhawk-mods). |
 | npiperelay | `albertony.npiperelay` | Windows SSH agent in WSL, see [SSH agent in WSL](../README.md#ssh-agent-in-wsl). |

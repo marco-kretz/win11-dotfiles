@@ -96,6 +96,10 @@ Installed via mise (`claude` in the mise config), so its own auto-updater is off
 
 [IoskeleyMono](https://github.com/ahatem/IoskeleyMono) Nerd Font Mono, regular and `Term` variant (the one Windows Terminal uses). chezmoi downloads the pinned release to `~/.local/share/fonts` (`.chezmoiexternal.toml`) and `run_onchange_after_40-fonts.ps1.tmpl` registers it for the current user, no admin needed. New fonts show up after the next sign-in. To update, change the version and checksums in `.chezmoiexternal.toml`.
 
+## OpenWhispr
+
+`AppData/Roaming/open-whispr/.env` holds the local dictation setup: `F9` push-to-talk, Whisper `turbo` model with automatic language detection, CUDA and Vulkan acceleration on, starts minimized. Everything runs locally, no API keys involved. OpenWhispr downloads the model again on first use. The app rewrites this file when you change settings, so run `chezmoi re-add` afterwards.
+
 ## SSH agent in WSL
 
 The configuration installs [npiperelay](https://github.com/albertony/npiperelay) and keeps the Windows `ssh-agent` service running, so WSL can use the Windows agent through `socat` + `npiperelay.exe`. In WSL, install `socat` (e.g. `sudo apt install socat`) and add this to `~/.bashrc` or `~/.zshrc`. Replace `<windows-user>` with your Windows user name; `(Get-Command npiperelay).Source` in PowerShell prints the exact path.
