@@ -16,6 +16,246 @@ properties:
       settings:
         id: RamenSoftware.Windhawk
         source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: discord
+      directives:
+        description: Install Discord.Discord
+      settings:
+        id: Discord.Discord
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: teams
+      directives:
+        description: Install Microsoft.Teams
+      settings:
+        id: Microsoft.Teams
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: spotify
+      directives:
+        description: Install Spotify.Spotify
+      settings:
+        id: Spotify.Spotify
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: steam
+      directives:
+        description: Install Valve.Steam
+      settings:
+        id: Valve.Steam
+        source: winget
+
+    # --- Dev ----------------------------------------------------------------------------
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: git
+      directives:
+        description: Install Git.Git
+      settings:
+        id: Git.Git
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: powershell
+      directives:
+        description: Install Microsoft.PowerShell
+      settings:
+        id: Microsoft.PowerShell
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: windows-terminal
+      directives:
+        description: Install Microsoft.WindowsTerminal
+      settings:
+        id: Microsoft.WindowsTerminal
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: wsl
+      directives:
+        description: Install Microsoft.WSL
+      settings:
+        id: Microsoft.WSL
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: vscode
+      directives:
+        description: Install Microsoft.VisualStudioCode
+      settings:
+        id: Microsoft.VisualStudioCode
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: ddev
+      directives:
+        description: Install DDEVFoundation.DDEV
+      settings:
+        id: DDEVFoundation.DDEV
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: dbeaver
+      directives:
+        description: Install DBeaver.DBeaver.Community
+      settings:
+        id: DBeaver.DBeaver.Community
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: bruno
+      directives:
+        description: Install Bruno.Bruno
+      settings:
+        id: Bruno.Bruno
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: starship
+      directives:
+        description: Install Starship.Starship
+      settings:
+        id: Starship.Starship
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: vs-community
+      directives:
+        description: Install Visual Studio Community
+      settings:
+        id: Microsoft.VisualStudio.Community
+        source: winget
+
+    - resource: Microsoft.VisualStudio.DSC/VSComponents
+      id: vs-workloads
+      dependsOn:
+        - vs-community
+      directives:
+        description: Visual Studio workloads from community.vsconfig
+        allowPrerelease: true
+        securityContext: elevated
+      settings:
+        productId: Microsoft.VisualStudio.Product.Community
+        channelId: VisualStudio.18.Release
+        vsConfigFile: '${WinGetConfigRoot}\community.vsconfig'
+        includeRecommended: true
+
+    # --- Tools --------------------------------------------------------------------------
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: powertoys
+      directives:
+        description: Install Microsoft.PowerToys
+      settings:
+        id: Microsoft.PowerToys
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: nanazip
+      directives:
+        description: Install M2Team.NanaZip
+      settings:
+        id: M2Team.NanaZip
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: localsend
+      directives:
+        description: Install LocalSend.LocalSend
+      settings:
+        id: LocalSend.LocalSend
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: windirstat
+      directives:
+        description: Install WinDirStat.WinDirStat
+      settings:
+        id: WinDirStat.WinDirStat
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: autohotkey
+      directives:
+        description: Install AutoHotkey.AutoHotkey
+      settings:
+        id: AutoHotkey.AutoHotkey
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: eurkey
+      directives:
+        description: Install SteffenBruentjen.EurKEY
+      settings:
+        id: SteffenBruentjen.EurKEY
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: obsidian
+      directives:
+        description: Install Obsidian.Obsidian
+      settings:
+        id: Obsidian.Obsidian
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: logseq
+      directives:
+        description: Install Logseq.Logseq
+      settings:
+        id: Logseq.Logseq
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: onlyoffice
+      directives:
+        description: Install ONLYOFFICE.DesktopEditors
+      settings:
+        id: ONLYOFFICE.DesktopEditors
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: synology-drive
+      directives:
+        description: Install Synology.DriveClient
+      settings:
+        id: Synology.DriveClient
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: openwhispr
+      directives:
+        description: Install OpenWhispr.OpenWhispr
+      settings:
+        id: OpenWhispr.OpenWhispr
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: fastfetch
+      directives:
+        description: Install Fastfetch-cli.Fastfetch
+      settings:
+        id: Fastfetch-cli.Fastfetch
+        source: winget
+
+    # --- Browsers -----------------------------------------------------------------------
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: firefox-dev
+      directives:
+        description: Install Mozilla.Firefox.DeveloperEdition.de
+      settings:
+        id: Mozilla.Firefox.DeveloperEdition.de
+        source: winget
+
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: chromium
+      directives:
+        description: Install Hibbiki.Chromium
+      settings:
+        id: Hibbiki.Chromium
+        source: winget
 
     # --- Windows SSH agent for WSL (WSL side: socat + npiperelay.exe) -------------------
     - resource: Microsoft.WinGet.DSC/WinGetPackage
@@ -151,7 +391,7 @@ properties:
         ValueData: "0"
         Force: true
 
-    # --- Nags ---------------------------------------------------------------------------
+    # --- Nags -----------------------------------------------------------------------------
     - resource: PSDscResources/Registry
       id: scoobe
       directives:
@@ -185,7 +425,7 @@ properties:
         ValueData: "0"
         Force: true
 
-    # --- Privacy ------------------------------------------------------------------------
+    # --- Privacy --------------------------------------------------------------------------
     - resource: PSDscResources/Registry
       id: tailored-experiences
       directives:
@@ -241,7 +481,7 @@ properties:
         ValueData: "0"
         Force: true
 
-    # --- Network ------------------------------------------------------------------------
+    # --- Network --------------------------------------------------------------------------
     - resource: PSDscResources/Registry
       id: delivery-optimization
       directives:

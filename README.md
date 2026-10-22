@@ -16,6 +16,7 @@ mise install   # installs all tools from the mise config, chezmoi included
 
 - `dot_config/mise/config.toml`: global mise tools.
 - `firefox/user.js`: Betterfox selection, copied into every Firefox profile on `chezmoi apply` (Firefox must be closed).
+- `winget/community.vsconfig`: Visual Studio Community workloads, applied by the configuration. Refresh after changing workloads in the VS Installer: *More → Export configuration*.
 - `winget/configuration.winget`: registry tweaks and apps, applied by `chezmoi apply` whenever the file changes (one UAC prompt for HKLM values). What each value does: [docs/registry-tweaks.md](docs/registry-tweaks.md).
 
 ## Daily use
@@ -46,6 +47,9 @@ Install via Windhawk (installed by the configuration). Settings live in Windhawk
 
 ## Apps
 
+Everything available on winget is installed by the configuration. The rest by hand:
+
+- [NVIDIA Broadcast](https://www.nvidia.com/broadcast-app/): not on winget, install via the NVIDIA App.
 - [AI Usage](https://github.com/marco-kretz/AIUsage): Claude Code usage limits in the tray. Install from its releases (not on winget).
 
 ## SSH agent in WSL
